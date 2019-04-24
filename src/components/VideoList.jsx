@@ -1,11 +1,11 @@
 import VideoListEntry from '../components/VideoListEntry.js';
 //passing in example video data
-var VideoList = (props) => {
+var VideoList = ({videos, handleClick}) => {
   return (
     <div className="video-list">
       {
-        props.videos.map(video => {
-          return <VideoListEntry video={ video }/>;
+        videos.map(video => {
+          return <VideoListEntry video={ video } key={video.id.videoId} handleClick={handleClick}/>;
         })
       }
     </div>
