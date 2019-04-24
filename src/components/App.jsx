@@ -2,6 +2,7 @@
 import exampleVideoData from '../data/exampleVideoData.js';
 import VideoList from '../components/VideoList.js';
 import VideoPlayer from '../components/VideoPlayer.js';
+import Search from '../components/Search.js';
 
 
 class App extends React.Component {
@@ -24,7 +25,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> view goes here</h5></div>
+            <div><h5><em>search</em> <Search /> </h5></div>
           </div>
         </nav>
         <div className="row">
