@@ -14,6 +14,24 @@ class App extends React.Component {
       currentVideo: exampleVideoData[0]
     };
   }
+
+  componentDidMount () {
+    this.getYoutubeVideos('cute kittens');
+  }
+
+  getYoutubeVideos(query) {
+    var options = {
+      key: this.props.API_KEY,
+      query: query,
+    };
+
+    this.props.searchYouTube(options, (videos) => {
+      this.setSate({
+        vidoes: videos,
+        currentVideo: videos[0]
+      });
+    });
+  }
   
   handleClick(video) {
     this.setState({
@@ -25,7 +43,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> <Search /> </h5></div>
+            <div><h5><em>search</em> <Search handleSearchInputChange={this.getYoutubeVideos.bind(this)} /> </h5></div>
           </div>
         </nav>
         <div className="row">
